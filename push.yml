@@ -34,5 +34,5 @@ jobs:
         docker push 985273597760.dkr.ecr.us-west-2.amazonaws.com/sarika:latest
 
       env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AKIA6KZXB75AHWEQJE5R }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.8nbxPFymyv1Nur9/kiLxA9ri6bj3zLGv9yDsSnAd }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
