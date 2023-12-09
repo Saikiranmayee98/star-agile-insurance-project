@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest
+    runs-on: amazonlinux-2023
 
     steps:
     - name: Checkout Repository
@@ -22,17 +22,17 @@ jobs:
     - name: Build and push Docker image to ECR
       run: |
         # Log in to Amazon ECR
-        aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
+        aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 985273597760.dkr.ecr.us-west-2.amazonaws.com
 
         # Build Docker image
-        docker build -t my-ecr-repo .
+        docker build -t sarika .
 
         # Tag the Docker image
-        docker tag my-ecr-repo:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/my-ecr-repo:latest
+        docker tag sarika:latest 985273597760.dkr.ecr.us-west-2.amazonaws.com/sarika:latest
 
         # Push Docker image to ECR
-        docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/my-ecr-repo:latest
+        docker push 985273597760.dkr.ecr.us-west-2.amazonaws.com/sarika:latest
 
       env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AKIA6KZXB75AHWEQJE5R }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.8nbxPFymyv1Nur9/kiLxA9ri6bj3zLGv9yDsSnAd }}
